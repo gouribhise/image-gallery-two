@@ -3,15 +3,36 @@ import {useCallback} from 'react'
 
 const API_KEY=process.env.REACT_APP_PIXABAY_API_KEY
 const url=`https://pixabay.com/api/?key=${API_KEY}`
-
+console.log(url)
 const AppContext=React.createContext()
 
 const AppProvider=({children})=>{
   const[loading,setLoading]=useState(true);
-  const[searchTerm,setSearchTerm]=useState('a');
+  const[searchTerm,setSearchTerm]=useState('');
   const[images,setImages]=useState([]);
+  console.log("searchterm ",searchTerm)
 
-  return <AppContext.Provider value={{}}>
+  //fetch images
+  const fetchImages = useCallback( async () => {
+  setLoading(true)
+  try {
+    const response = await fetch(`${url}&q=${searchTerm}`)
+    console.log("what is response",response)
+    const data = await response.json()
+    console.log(data);
+  }
+  catch(error){
+    console.log(error)
+    setLoading(false)
+  }
+},[searchTerm])
+useEffect(() => {
+  fetchImages()
+}, [searchTerm,fetchImages])
+
+  return <AppContext.Provider value={{
+    loading,images,searchTerm,setSearchTerm
+  }}>
   {children}</AppContext.Provider>
 }
 
