@@ -20,8 +20,34 @@ const AppProvider=({children})=>{
     console.log("what is response",response)
     const data = await response.json()
     console.log(data);
-  }
-  catch(error){
+    const {hits}=data
+    if (hits) {
+        const newImages = hits.map((item) => {
+          const {
+            id,
+            likes,
+            tags,
+            user,
+            userImage,
+            webformatURL
+          } = item
+
+          return {
+            id:id,
+            like:likes,
+            tag:tags,
+            takenBy:user,
+            userImg:userImage,
+            img:webformatURL
+          }
+        })
+        setImages(newImages)
+      } else {
+        setImages([])
+      }
+      setLoading(false)
+    } catch (error) {
+
     console.log(error)
     setLoading(false)
   }
