@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { FaRegComment, FaRegThumbsUp } from 'react-icons/fa'
 
 const DispImages = ({item}) => {
-  const {img,like,tag,takenBy,userImg}=item
+  const {img,like,tag,takenBy,userImg,comment}=item
   console.log("what is img:",img)
   return (
             <div className="col-md-3">
@@ -12,8 +12,8 @@ const DispImages = ({item}) => {
                     />
                       <div className='photo-info'>
                           <div>
-                           <strong><FaRegThumbsUp />  {like}  &nbsp; <FaRegComment /> </strong>
-                           <h4>{tag}</h4>
+                           <strong className="likes"><FaRegThumbsUp />  {like}  &nbsp; &nbsp; <FaRegComment /> {comment} </strong>
+                           <h5 className="tags">{tag}</h5>
                           </div>
                           <img src={userImg} alt='' className='user-img' />
                       </div>

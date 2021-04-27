@@ -26,6 +26,7 @@ const AppProvider=({children})=>{
           const {
             id,
             likes,
+            comments,
             tags,
             user,
             userImage,
@@ -35,6 +36,7 @@ const AppProvider=({children})=>{
           return {
             id:id,
             like:likes,
+            comment:comments,
             tag:tags,
             takenBy:user,
             userImg:userImage,
