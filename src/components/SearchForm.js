@@ -18,8 +18,9 @@ const SearchForm=()=>{
     }
   return(
     <section>
+    <div className="col-md-7 offset-2 searchForm">
        <form onSubmit={handleSubmit}>
-         <label htmlFor="name">Search Images</label>
+         <label htmlFor="name">Search Images</label> &nbsp;
          <input type="text" name="name" id="name"
          onChange={(e)=>setSearchValue(e.target.value)}/>
          <button
@@ -33,6 +34,7 @@ const SearchForm=()=>{
                    Search
                   </button>
        </form>
+       </div>
     </section>
   )
 }

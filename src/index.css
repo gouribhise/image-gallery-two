@@ -13,7 +13,21 @@ code {
 }
 
 /******/
+.searchForm{
+  margin:20px;
+  margin:0 auto;
+  margin-top:20px;
 
+}
+
+#name{
+  text-indent:30px;
+ font-size:1.5vw;
+ border-radius: 40px;
+ 
+  padding: 5px;
+  text-indent: 20px;
+}
 .photo {
   height: 17.5rem;
   position: relative;
