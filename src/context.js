@@ -10,14 +10,13 @@ const AppProvider=({children})=>{
   const[loading,setLoading]=useState(true);
   const[searchTerm,setSearchTerm]=useState('');
   const[images,setImages]=useState([]);
-  const[image,setImage]=useState([]);
   console.log("searchterm ",searchTerm)
 
   //fetch images
   const fetchImages = useCallback( async () => {
   setLoading(true)
   try {
-    const response = await fetch(`${url}&q=${searchTerm}`)
+    const response = await fetch(`${url}&q=${searchTerm}&image_type=photo&pretty=true&safesearch=true`)
     console.log("what is response",response)
     const data = await response.json()
     console.log(data);
