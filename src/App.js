@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 
 import Navbar from './components/Navbar'
+import ShowImg from './components/ShowImg'
 function App() {
   return (
     <Router>
@@ -17,6 +18,9 @@ function App() {
         <Route exact path="/about">
            <About/>
         </Route>
+        <Route path="/image/:id">
+         <ShowImg/>
+      </Route>
      </Switch>
    </Router>
   );

@@ -10,6 +10,7 @@ const AppProvider=({children})=>{
   const[loading,setLoading]=useState(true);
   const[searchTerm,setSearchTerm]=useState('');
   const[images,setImages]=useState([]);
+  const[image,setImage]=useState([]);
   console.log("searchterm ",searchTerm)
 
   //fetch images
