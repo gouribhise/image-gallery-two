@@ -3,23 +3,27 @@ import {useCallback} from 'react'
 
 const API_KEY=process.env.REACT_APP_PIXABAY_API_KEY
 const url=`https://pixabay.com/api/?key=${API_KEY}`
-console.log(url)
+ 
 const AppContext=React.createContext()
 
-const AppProvider=({children})=>{
-  const[loading,setLoading]=useState(true);
-  const[searchTerm,setSearchTerm]=useState('');
-  const[images,setImages]=useState([]);
-  console.log("searchterm ",searchTerm)
-
+const AppProvider = ({ children }) => {
+  //to show loading message
+  const [loading, setLoading] = useState(true);
+  //to get searchterm
+  const [searchTerm, setSearchTerm] = useState('');
+  //to store images data as an array
+  const [images, setImages] = useState([]);
+  
+ 
   //fetch images
   const fetchImages = useCallback( async () => {
   setLoading(true)
   try {
     const response = await fetch(`${url}&q=${searchTerm}&image_type=photo&pretty=true&safesearch=true`)
-    console.log("what is response",response)
+    //received data
     const data = await response.json()
-    console.log(data);
+ 
+    //get only hits array the actual data
     const {hits}=data
     if (hits) {
         const newImages = hits.map((item) => {

@@ -2,10 +2,12 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import './App.css';
 
+//import pages
 import Home from './pages/Home'
 import About from './pages/About'
 import ShowImg from './pages/ShowImg'
 
+//import components
 
 import Navbar from './components/Navbar'
 function App() {

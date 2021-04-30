@@ -1,25 +1,32 @@
 import React from 'react'
 import {useGlobalContext} from '../context'
 import DispImages from './DispImages';
-const ImagesList=()=>{
+const ImagesList = () => {
+  //get data from conted
   const { images, loading } = useGlobalContext()
-  console.log(images)
+ 
+ 
   if(loading){
-  return (
-    <h1>loading</h1>
-  )
-  }
-  if(images.length<1){
+     return (
+            <h1>Loading...</h1>
+           )
+       }
+ if(images.length<1){
     return(
-      <h1>No images found</h1>
+      <>
+         <div className="col-md-5 offset-3" style={{marginTop:"3%"}}>
+             <h4>No images found</h4>
+             <p>Enter new search term & try again</p>
+         </div>
+      </>
     )
   }
 
   return (
    <div className="row">
-{images.map((item)=>{
-return <DispImages key={item.id} item={item}/>
-})}
+          {images.map((item)=>{
+               return <DispImages key={item.id} item={item}/>
+          })}
    </div>
   )
 }
