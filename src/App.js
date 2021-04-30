@@ -4,9 +4,10 @@ import './App.css';
 
 import Home from './pages/Home'
 import About from './pages/About'
+import ShowImg from './pages/ShowImg'
+
 
 import Navbar from './components/Navbar'
-import ShowImg from './components/ShowImg'
 function App() {
   return (
     <Router>
